@@ -1,0 +1,35 @@
+<div class="container-fluid">
+
+    <div>Funded Projects (Sorted by project start date descending order)</div>
+    <div id="research-project-list">
+
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $.getJSON('projects.json', function (data) {
+            const projects = data
+
+            projects.forEach(e => {
+
+                $('#research-project-list').append(
+                    `<div class="card border-info mb-3" >
+                        <div class="card-header text-white bg-info">${e.name}</div>
+                        <div class="card-body">
+                            <div class=card-title"><b>Funding Agency: ${e.fundingAgency}</b><div>
+                            <br />
+                            <div class=card-title"><b>Principle Investigator(s):</b> ${e.principleInvestigator}<div>
+                            <div class=card-title"><b>Co-Principle Investigator(s):</b> ${e.coPrincipleInvestigator}<div>
+                            <div class="card-text">Project Start Date: ${e.startDate}</div>
+                            <div class="card-text">Project End Date: ${e.endDate}</div>
+                            <br />
+                            <p class="card-text">${e.description}</p>
+                            <a href="${e.detailsLink}" type="button" class="btn btn-primary" target="_blank">View Funding Details</a>
+                        </div>
+                        </div>`
+                )
+            })
+        })
+    })
+</script>
