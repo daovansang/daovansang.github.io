@@ -1,0 +1,56 @@
+<div class="list-group" id="homeSecondaryNav">
+    <div class="list-group-item list-group-item-dark bg-primary flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1">Information</h3>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        const data = [
+            {
+                text: "College of Applied Life Sciences",
+                additionalDetails: "Jeju National University",
+                path: 'https://www.jejunu.ac.kr/eng'
+            },
+            {
+                text: "Plant Sciences Institute",
+                additionalDetails: "lowa Stae University",
+                path: 'https://www.psi.iastate.edu/'
+            },
+            {
+                text: "New & Media Resources ",
+                path: '/media'
+            },
+            /*
+            {
+                text: "Protocols ",
+                path: '#'
+            },
+            {
+                text: "How to Find Us ",
+                path: '#'
+            },
+            {
+                text: "Recycling Policy ",
+                path: '#'
+            },
+            {
+                text: "Lab Intranet ",
+                path: '#'
+            },
+            */
+        ]
+        const secondaryNav = $('#homeSecondaryNav')
+        data.forEach((e) => {
+            secondaryNav.append(
+                `<a href="${e.path}" class="list-group-item list-group-item-action" target="_blank">
+                ${e.text}
+                ${e.additionalDetails != undefined
+                    ? `<br />(<span class="fst-italic">${e.additionalDetails})</span>`
+                    : ''}
+            </a>`)
+        })
+    })
+
+</script>
